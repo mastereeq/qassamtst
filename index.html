@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Qasim Shmardel - Classmate</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #222;
+      color: #fff;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .video-container {
+      text-align: center;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+      padding: 20px;
+    }
+
+    video {
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    #serialForm {
+      display: block;
+    }
+
+    #videoPlayer {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="video-container" id="serialForm">
+    <h1>Qasim Shmardel - Classmate</h1>
+    <label for="serialNumber">Please enter the serial number:</label>
+    <input type="text" id="serialNumber" placeholder="Enter serial number" onkeypress="handleKeyPress(event)">
+    <button type="button" onclick="checkSerial()">Open Video</button>
+  </div>
+
+  <div class="video-container" id="videoPlayer" style="display: none;">
+    <h1>Video Player</h1>
+    <video controls id="myVideo">
+      <source src="http://kekkkkk-marduk.koyeb.app//9544/IMG_3909.MOV?hash=1e7e4d" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+
+  <script>
+    function checkSerial() {
+      var userInput = document.getElementById('serialNumber').value;
+      var allowedSerials = ['313', '313', '313'];
+
+      if (allowedSerials.includes(userInput)) {
+        document.getElementById('serialForm').style.display = 'none';
+        document.getElementById('videoPlayer').style.display = 'block';
+        document.getElementById('myVideo').src = 'http://kekkkkk-marduk.koyeb.app//9544/IMG_3909.MOV?hash=1e7e4d'; // أضف الرابط هنا
+      } else {
+        alert('Invalid serial number');
+      }
+    }
+
+    function handleKeyPress(event) {
+      if (event.keyCode === 13) { // تحقق من الضغط على Enter
+        checkSerial();
+      }
+    }
+  </script>
+</body>
+</html>
